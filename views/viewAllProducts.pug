@@ -1,0 +1,35 @@
+doctype html
+
+html
+  head
+    title Product Catalogue Management
+  body
+    h1 Product Catalogue Management - View All Products
+    p
+        a(href="/") Home
+    p
+        table(width="100%" border="1" cellpadding="10" cellspacing="0")
+            tbody
+                tr
+                    th Product ID
+                    th SKU Code
+                    th Product Name
+                    th(width="400px") Product Description
+                    th Brand
+                    th Model
+                    th Category
+                    th Unit Price
+                    th Action
+                each product in products
+                    tr
+                        td #{product.product_id}
+                        td #{product.sku_code}
+                        td #{product.product_name}
+                        td #{product.product_description}
+                        td #{product.brand}
+                        td #{product.model}
+                        td #{product.category}
+                        td $#{product.unit_price}
+                        td
+                            a(href=`/updateProduct/${product.product_id}`) Update | 
+                            a(href=`/deleteProduct/${product.product_id}`) Delete

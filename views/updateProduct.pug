@@ -1,0 +1,61 @@
+doctype html
+
+html
+  head
+    title Product Catalogue Management
+  body
+    h1 Product Catalogue Management - Update Product
+    p
+        a(href="/") Home
+    p
+        form(action="/updateProduct/" + product.product_id, method="post")
+            table(width="100%" border="1" cellpadding="10" cellspacing="0")
+                tbody
+                    tr
+                        td Product ID:
+                        td #{product.product_id}
+                    tr
+                        td SKU Code:
+                        td
+                            input(type="text", name="sku_code", required="required", value=product.sku_code)
+                    tr
+                        td Product Name:
+                        td
+                            input(type="text", name="product_name", required="required", value=product.product_name)                    
+                    tr
+                        td Product Description:
+                        td
+                            textarea(name="product_description", rows="5", cols="50") #{product.product_description}
+                    tr
+                        td Brand:
+                        td
+                            input(type="text", name="brand", required="required", value=product.brand)
+                    tr
+                        td Model:
+                        td
+                            input(type="text", name="model", required="required", value=product.model)
+                    tr
+                        td Category:
+                        td
+                            select(name="category" required="required")                                
+                                option(value="Smartphones", selected=product.category == "Smartphones") Smartphones
+                                option(value="Laptops", selected=product.category == "Laptops") Laptops
+                                option(value="Headphones", selected=product.category == "Headphones") Home & Headphones
+                                option(value="Smartwatches", selected=product.category == "Smartwatches") Smartwatches
+                                option(value="Televisions", selected=product.category == "Televisions") Televisions
+                                option(value="Cameras", selected=product.category == "Cameras") Cameras
+                                option(value="Gaming", selected=product.category == "Gaming") Gaming
+                                option(value="Kitchen", selected=product.category == "Kitchen") Kitchen
+                                option(value="Fitness", selected=product.category == "Fitness") Fitness
+                                option(value="Books", selected=product.category == "Books") Books
+                    tr 
+                        td Quantity on Hand
+                        td 
+                            input(type="number", name="quantity_on_hand", required="required", value=product.quantity_on_hand)
+                    tr
+                        td Unit Price:
+                        td
+                            input(type="number", name="unit_price", step=".01", required="required", value=product.unit_price)
+                    tr
+                        td(colspan=2, align="center")
+                            input(type="submit", value="Update Product")

@@ -1,0 +1,44 @@
+doctype html
+
+html
+  head
+    title Product Catalogue Management
+  body
+    h1 Product Catalogue Management - Delete Product
+    p
+        a(href="/") Home
+    p
+        form(action="/deleteProduct/" + product.product_id, method="post")
+            table(width="100%" border="1" cellpadding="10" cellspacing="0")
+                tbody
+                    tr
+                        td Product ID:
+                        td #{product.product_id}
+                    tr
+                        td SKU Code:
+                        td #{product.sku_code}
+                    tr
+                        td Product Name:
+                        td #{product.product_name}
+                    tr
+                        td Product Description:
+                        td
+                            pre #{product.product_description}
+                    tr
+                        td Brand:
+                        td #{product.brand}
+                    tr
+                        td Model:
+                        td #{product.model}
+                    tr
+                        td Category:
+                        td #{product.category}
+                    tr 
+                        td Quantity on Hand
+                        td #{product.quantity_on_hand}
+                    tr
+                        td Unit Price:
+                        td $#{product.unit_price}
+                    tr
+                        td(colspan=2, align="center")
+                            input(type="submit", value="Delete Product")
